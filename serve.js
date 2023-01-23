@@ -33,6 +33,17 @@ app.get('/', async (req, res, next) => {
     }
 });
 
+app.get('/no-async', (req, res) => {
+    appInsightsClient.trackTrace({
+        message: `ok ${Date.now()}`,
+    });
+    appInsightsClient.flush();
+    res.json({
+        status: `ok ${Date.now()}`,
+        date: new Date().toISOString(),
+    });
+});
+
 // error handler
 app.use((err, req, res, next) => {
     console.error(err);
