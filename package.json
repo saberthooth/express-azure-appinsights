@@ -4,11 +4,10 @@
         "applicationinsights": "~2.4.1",
         "dotenv": "~16.0.3",
         "nodemon": "~2.0.20",
-        "got": "~11",
-        "pm2": "~5.2.2"
+        "got": "~11"
     },
     "scripts": {
-        "start": "pm2 start serve.js --no-daemon",
+        "start": "node serve.js --no-daemon",
         "dev": "nodemon serve.js"
     }
 }
