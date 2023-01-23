@@ -22,10 +22,12 @@ app.get('/', async (req, res, next) => {
             return;
         }
     } else {
-        appInsightsClient.trackTrace({ message: 'ok' });
+        appInsightsClient.trackTrace({
+            message: `ok ${Date.now()}`,
+        });
         appInsightsClient.flush();
         res.json({
-            status: 'ok',
+            status: `ok ${Date.now()}`,
             date: new Date().toISOString(),
         });
     }
